@@ -60,6 +60,26 @@ return array(
         'aliases' => array(
             'translator' => 'MvcTranslator',
         ),
+        'services' => array(
+            'categories' => array(
+                'barter',
+                'beauty',
+                'clothing',
+                'computer',
+                'entertainment',
+                'free',
+                'garden',
+                'general',
+                'health',
+                'household',
+                'phones',
+                'property',
+                'sporting',
+                'tools',
+                'transportation',
+                'wanted'
+            ),
+        ),
     ),
     'translator' => array(
         'locale' => 'en_US',

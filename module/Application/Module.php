@@ -25,9 +25,14 @@ class Module
 
     public function onDispatch(MvcEvent $e){
         $viewModel = $e->getViewModel();
-        $viewModel->setVariable('categories', 'CATEGORY LIST');
+
+        $serviceManager = $e->getApplication()->getServiceManager();
+        $categories = $serviceManager->get('categories');
+
+        $viewModel->setVariable('categories', $categories);
 
     }
+
     public function getConfig()
     {
         return include __DIR__ . '/config/module.config.php';
