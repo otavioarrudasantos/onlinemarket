@@ -14,7 +14,44 @@ return array(
     ),
     'router' => array(
         'routes' => array(
+            'home' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route' => '/',
+                    'defaults' => array(
+                        'controller' => 'market-index-controller',
+                        'action'    => 'index'
+                     )
+
+                ),
+            ),
+            'market-view' =>    array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route' => '/market/view',
+                    'defaults' => array(
+                        'controller' => 'market-view-controller',
+                        'action' => 'index'
+                    )
+
+                ),
+            ),
             'market' => array(
+                'type' => 'literal',
+                'options' => array(
+                    'route' => '/market',
+                    'defaults' => array(
+                        'controller' => 'market-index-controller',
+                        'action' => 'index'
+                    ),
+                ),
+            ),
+            /*
+                conflita com a rota market-view. quando digitado /market/view, 
+                cai na verificaçõa das child routes, fazendo então procurar por um controller view 
+            */
+
+            /*'market' => array(
                 'type'    => 'Literal',
                 'options' => array(
                     // Change this to something specific to your module
@@ -46,7 +83,7 @@ return array(
                         ),
                     ),
                 ),
-            ),
+            ),*/
         ),
     ),
     'view_manager' => array(
