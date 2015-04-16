@@ -1,6 +1,5 @@
-<strong>Module:</strong>        Market &raquo;
-<strong>Controller:</strong>    Index &raquo;
-<strong>Action:</strong>        index
-<?php foreach ($this->messages as $message) {
-    echo '<h3>'. $message . '</h3>';
+<h1>Index Market</h1>
+<?php 
+if(isset($this->messages) && count($this->messages)){
+    echo $this->htmllist($this->messages);
 }
