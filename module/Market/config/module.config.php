@@ -25,6 +25,16 @@ return array(
 
                 ),
             ),
+            'market' => array(
+                'type' => 'literal',
+                'options' => array(
+                    'route' => '/market',
+                    'defaults' => array(
+                        'controller' => 'market-index-controller',
+                        'action' => 'index'
+                    ),
+                ),
+            ),
             'market-view' =>    array(
                 'type' => 'Literal',
                 'options' => array(
@@ -34,16 +44,6 @@ return array(
                         'action' => 'index'
                     )
 
-                ),
-            ),
-            'market' => array(
-                'type' => 'literal',
-                'options' => array(
-                    'route' => '/market',
-                    'defaults' => array(
-                        'controller' => 'market-index-controller',
-                        'action' => 'index'
-                    ),
                 ),
             ),
             /*
