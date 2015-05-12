@@ -26,13 +26,14 @@ return array(
                 ),
             ),
             'market' => array(
-                'type' => 'literal',
+                'type' => 'Literal',
                 'options' => array(
                     'route' => '/market',
                     'defaults' => array(
                         'controller' => 'market-index-controller',
-                        'action' => 'index'
-                    ),
+                        'action'    => 'index'
+                    )
+
                 ),
             ),
             'market-view' =>    array(
@@ -45,7 +46,28 @@ return array(
                     )
 
                 ),
+                'may_terminate' => true,
+                'child_routes' => array(
+                    // This route is a sane default when developing a module;
+                    // as you solidify the routes for your module, however,
+                    // you may want to remove it and replace it with more
+                    // specific routes.
+                    'default' => array(
+                        'type'    => 'Segment',
+                        'options' => array(
+                            'route'    => '/[:controller[/:action]]',
+                            'constraints' => array(
+                                'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                            ),
+                            'defaults' => array(
+                            ),
+                        ),
+                    ),
+                ),
             ),
+
+
             /*
                 conflita com a rota market-view. quando digitado /market/view, 
                 cai na verificaçõa das child routes, fazendo então procurar por um controller view 
