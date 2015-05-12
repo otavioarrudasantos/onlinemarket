@@ -36,6 +36,17 @@ return array(
 
                 ),
             ),
+            'market-post' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route' => '/market/post',
+                    'defaults' => array(
+                        'controller' => 'market-post-controller',
+                        'action'    => 'index'
+                    )
+
+                ),
+            ),
             'market-view' =>    array(
                 'type' => 'Literal',
                 'options' => array(
