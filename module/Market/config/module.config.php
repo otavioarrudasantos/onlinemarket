@@ -63,25 +63,39 @@ return array(
                     // as you solidify the routes for your module, however,
                     // you may want to remove it and replace it with more
                     // specific routes.
-                    'default' => array(
+                    'index' => array(
                         'type'    => 'Segment',
                         'options' => array(
-                            'route'    => '/[:controller[/:action]]',
+                            'route'    => '/main/[:category]',
                             'constraints' => array(
                                 'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
                                 'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
                             ),
                             'defaults' => array(
+                                'action' => 'index'
                             ),
                         ),
+                    ),
+
+                    'item' => array(
+                        'type' => 'Segment',
+                        'options' => array(
+                            'route' => '/item[/:itemId]',
+                            'defaults' => array(
+                                'action' => 'item'
+                            ),
+                            'constraints' => array(
+                                'itemId' => '[0-9]*'
+                            ),
+                        )
                     ),
                 ),
             ),
 
 
             /*
-                conflita com a rota market-view. quando digitado /market/view, 
-                cai na verificaçõa das child routes, fazendo então procurar por um controller view 
+                conflita com a rota market-view. quando digitado /market/view,
+                cai na verificaçõa das child routes, fazendo então procurar por um controller view
             */
 
             /*'market' => array(
