@@ -7,6 +7,7 @@ use Zend\View\Model\ViewModel;
 class ViewController extends AbstractActionController{
     public function indexAction(){
         $category = $this->params()->fromRoute('category');
+
         if(empty($category)){
             return new ViewModel([]);
         }
@@ -15,6 +16,7 @@ class ViewController extends AbstractActionController{
 
     public function itemAction() {
         $itemId = $this->params()->fromRoute('itemId');
+
         if(empty($itemId)){
             $this->flashMessenger()->addMessage('Item Not Found');
             return $this->redirect()->toRoute('market');
