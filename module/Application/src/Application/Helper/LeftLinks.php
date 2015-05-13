@@ -15,7 +15,7 @@ class LeftLinks extends AbstractHelper {
     public function __invoke($values, $urlPrefix){
         $li = [];
         foreach ($values as $item){
-            $li[] = '<li> <a href="'.$urlPrefix.'/CCC">'.$item.'</a>';
+            $li[] = '<li> <a href="'.$urlPrefix.'/'.$item.'">'.$item.'</a>';
         }
         return '<ul>'. implode('',$li).'</ul>';
     }
