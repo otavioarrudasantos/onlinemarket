@@ -45,7 +45,7 @@
         </nav>
         <div class="container">
             <div class='col-lg-2'>
-                <?php echo $this->htmlList($this->categories); ?>
+                <?php echo $this->leftLinks($this->categories, $this->basePath().'/market/view/main'); ?>
             </div>
             <div class='col-lg-10'><?php echo $this->content; ?></div>
 
