@@ -15,6 +15,7 @@ class PostFormFactory implements FactoryInterface {
 
         $form->setCategories($categories);
         $form->buildForm();
+        $form->setInputFilter($sm->get('market-post-filter'));
         return $form;
     }
 }

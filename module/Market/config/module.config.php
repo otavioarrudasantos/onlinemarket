@@ -15,6 +15,7 @@ return array(
     'service_manager' => array(
         'factories' => array(
             'market-post-form' => 'Market\Factory\PostFormFactory',
+            'market-post-filter' => 'Market\Factory\PostFilterFactory',
         )
     ),
     'router' => array(
