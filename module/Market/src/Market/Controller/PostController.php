@@ -6,13 +6,34 @@ use Zend\View\Model\ViewModel;
 class PostController extends AbstractActionController{
     public $categories;
 
+    private $postForm;
+
+    /**
+     * @return mixed
+     */
+    public function getPostForm()
+    {
+        return $this->postForm;
+    }
+
+    /**
+     * @param mixed $postForm
+     */
+    public function setPostForm($postForm)
+    {
+        $this->postForm = $postForm;
+    }
+
     public function setCategories($arrCategories){
         $this->categories = $arrCategories;
     }    
 
     public function indexAction(){
-        $viewModel = new ViewModel();
-        $viewModel->setTemplate('market/post/invalid.phtml');
+
+        $params = $this->params()->fromPost();
+        $this->postForm->setData($params);
+        $viewModel = new ViewModel(['postForm'=> $this->postForm, 'data' => $params]);
+//        $viewModel->setTemplate('market/post/invalid.phtml');
         return $viewModel;
     }
 

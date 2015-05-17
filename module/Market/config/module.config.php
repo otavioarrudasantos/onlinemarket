@@ -12,6 +12,11 @@ return array(
             'alt'=> 'market-view-controller'
         )
     ),
+    'service_manager' => array(
+        'factories' => array(
+            'market-post-form' => 'Market\Factory\PostFormFactory',
+        )
+    ),
     'router' => array(
         'routes' => array(
             'home' => array(
@@ -76,22 +81,23 @@ return array(
                             ),
                         ),
                     ),
+                    'post' => array(
+                        'type' => 'Segment',
+                        'options' => array(
+                            'route' => 'post[/]',
+                            'defaults' => array(
+                                'controller' => 'market-post-controller',
+                                'action'    => 'index'
+                            )
+
+                        ),
+                    ),
 
                 ),
             ),
 
 
-            'market-post' => array(
-                'type' => 'Segment',
-                'options' => array(
-                    'route' => '/market/post[/]',
-                    'defaults' => array(
-                        'controller' => 'market-post-controller',
-                        'action'    => 'index'
-                    )
 
-                ),
-            ),
 
 
 
