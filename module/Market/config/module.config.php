@@ -13,6 +13,22 @@ return array(
         )
     ),
     'service_manager' => array(
+        'services' => array(
+            'market-captcha-options' => array(
+                'expiration' => 300,
+                'font'        => __DIR__ . '/../../../public/captcha/arial.ttf',
+                'fontSize'    => 24,
+                'height'    => 50,
+                'width'        => 200,
+                'imgDir'    => __DIR__ . '/../../../public/captcha',
+                'imgUrl'    => '/captcha',
+                'dotNoiseLevel' => 40,
+                'lineNoiseLevel' => 3,
+            ),
+            'market-expire-days' => array(
+                1,2,3,4,5,6,7,8,9,10,
+            )
+        ),
         'factories' => array(
             'market-post-form' => 'Market\Factory\PostFormFactory',
             'market-post-filter' => 'Market\Factory\PostFilterFactory',
