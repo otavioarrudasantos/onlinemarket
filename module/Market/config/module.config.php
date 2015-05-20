@@ -16,7 +16,7 @@ return array(
         'services' => array(
             'market-captcha-options' => array(
                 'expiration' => 300,
-                'font'        => __DIR__ . '/../../../public/captcha/arial.ttf',
+                'font'        => __DIR__ . '/../../../public/fonts/arial.ttf',
                 'fontSize'    => 24,
                 'height'    => 50,
                 'width'        => 200,
