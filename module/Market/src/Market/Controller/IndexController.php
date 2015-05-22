@@ -13,6 +13,8 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 class IndexController extends AbstractActionController
 {
+    use ListingsTableTrait;
+
     public function indexAction()
     {
         $messages = ["Welcome to the Online Market"];
