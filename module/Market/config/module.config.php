@@ -31,6 +31,7 @@ return array(
             'market-post-form' => 'Market\Factory\PostFormFactory',
             'market-post-filter' => 'Market\Factory\PostFilterFactory',
             'listings-table' => 'Market\Factory\ListingsTableFactory',
+            'general-adapter' => 'Zend\Db\Adapter\AdapterServiceFactory',
         )
     ),
     'router' => array(

@@ -18,8 +18,8 @@ class ListingsTableFactory implements FactoryInterface{
 
     public function createService(ServiceLocatorInterface $sm)
     {
-        $tableModel = new TableGateway(ListingsTable::$tableName, $sm->get('general-adapter'));
-        return $tableModel;
+        return new ListingsTable(ListingsTable::$tableName, $sm->get('general-adapter'));
+
     }
 
 }
