@@ -26,6 +26,7 @@ class PostForm extends Form{
 
     use ExpireDaysTrait;
     use CaptchaTrait;
+    use CityCodesTrait;
     private $categories;
 
     /**
@@ -120,6 +121,7 @@ class PostForm extends Form{
 
         $cityCode = new Select('city_code');
         $cityCode->setLabel('Nearest City')
+            ->setValueOptions($this->getCityCodes())
             ->setAttributes([
                'title' => 'Select the city of the item',
                 'id' => 'city_code',

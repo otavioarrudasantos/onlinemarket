@@ -3,3 +3,4 @@
 if(isset($this->messages) && count($this->messages)){
     echo $this->htmllist($this->messages);
 }
+echo $this->partial('market/partials/item', ['item' => $this->item]); ?>

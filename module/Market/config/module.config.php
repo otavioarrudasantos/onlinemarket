@@ -31,6 +31,7 @@ return array(
             'market-post-form' => 'Market\Factory\PostFormFactory',
             'market-post-filter' => 'Market\Factory\PostFilterFactory',
             'listings-table' => 'Market\Factory\ListingsTableFactory',
+            'city-codes-table' => 'Market\Factory\WorldCityAreaCodesTableFactory',
             'general-adapter' => 'Zend\Db\Adapter\AdapterServiceFactory',
         )
     ),
