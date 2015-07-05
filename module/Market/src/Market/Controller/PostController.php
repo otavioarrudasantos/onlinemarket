@@ -4,9 +4,12 @@ namespace Market\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 class PostController extends AbstractActionController{
-    public $categories;
+    use ListingsTableTrait;
 
+    public $categories;
     private $postForm;
+    private $cityCodeTable;
+
 
     /**
      * @return mixed
@@ -26,7 +29,7 @@ class PostController extends AbstractActionController{
 
     public function setCategories($arrCategories){
         $this->categories = $arrCategories;
-    }    
+    }
 
     public function indexAction(){
 
@@ -37,6 +40,8 @@ class PostController extends AbstractActionController{
         if($this->getRequest()->isPost()){
             $this->postForm->setData($params);
             if($this->postForm->isValid()){
+                $this->getCityCodeTable()->getCodeById($params['city_codes']);
+                $this->getListingsTable()->addPosting($this->postForm->getData());
                 $this->flashMessenger()->addMessage('Thanks for posting');
                 $this->redirect()->toRoute('home');
             }else{
@@ -50,6 +55,21 @@ class PostController extends AbstractActionController{
 
 //        $viewModel->setTemplate('market/post/invalid.phtml');
         return $viewModel;
+    }
+    /**
+     * @return mixed
+     */
+    public function getCityCodeTable()
+    {
+        return $this->cityCodeTable;
+    }
+
+    /**
+     * @param mixed $cityCodeTable
+     */
+    public function setCityCodeTable($cityCodeTable)
+    {
+        $this->cityCodeTable = $cityCodeTable;
     }
 
 }

@@ -13,13 +13,16 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 class IndexController extends AbstractActionController
 {
+    use ListingsTableTrait;
+
     public function indexAction()
     {
         $messages = ["Welcome to the Online Market"];
         if($this->flashMessenger()->hasMessages()){
             return new ViewModel(['messages' => $this->flashMessenger()->getMessages()]);
         }
-        return new ViewModel(array('messages' => $messages)) ;
+        $recentItem = $this->getListingsTable()->getLatestListing();
+        return new ViewModel(array('messages' => $messages, 'item' => $recentItem)) ;
     }
 
     public function fooAction()

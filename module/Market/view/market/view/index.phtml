@@ -1,2 +1,34 @@
 <h1>View Index</h1>
 <h2><?php echo $this->escapeHtml($this->category ); ?></h2>
+
+<?php
+    if($this->listings instanceof Zend\Db\ResultSet\ResultSet){ ?>
+        <table class="table table-bordered">
+            <tr>
+                <th>Item</th>
+                <th>Price</th>
+
+                <th>Posted</th>
+            </tr>
+<?php
+        while($item = $this->listings->current()){ ?>
+            <tr style="background-color: <?php echo $this->cycle(['#F9A770', '#FAC769', '#FAAE58'])->next(); ?>">
+                <td>
+                    <a href="<?php echo $this->url('market/view/item', array('itemId'=>$item['listings_id']));?>">
+                        <?php echo $this->escapeHtml($item['title']); ?>
+                    </a>
+                </td>
+                <td><?php echo $this->escapeHtml((float)$item['price']); ?></td>
+                <td><?php echo $this->escapeHtml($item['date_created']); ?></td>
+
+            </tr>
+<?php
+            $this->listings->next();
+        }
+?>
+        </table>
+<?php
+    }else{
+        Zend\Debug\Debug::dump($this->listings);
+    }
+?>
